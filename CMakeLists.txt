@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.14)
 project(CherryR_demo)
 
 if(APPLE)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "Target Yosemite" FORCE)
+    set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64" CACHE STRING "" FORCE)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "" FORCE)
 endif()
 
 include(FetchContent)
