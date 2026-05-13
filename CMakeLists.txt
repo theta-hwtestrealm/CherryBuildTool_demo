@@ -28,3 +28,16 @@ if(WIN32)
         LINK_FLAGS "/SUBSYSTEM:WINDOWS"
     )
 endif()
+
+if(UNIX AND NOT APPLE)
+    set_target_properties(CherryR_demo PROPERTIES LINK_FLAGS "-mwindows")
+endif()
+
+if(APPLE)
+    set_target_properties(CherryR_demo PROPERTIES
+        MACOSX_BUNDLE_GUI_IDENTIFIER "com.yourname.CherryR"
+        MACOSX_BUNDLE_BUNDLE_NAME "CherryR"
+        MACOSX_BUNDLE_BUNDLE_VERSION "1.0.0"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "1.0"
+    )
+endif()
