@@ -1,4 +1,3 @@
-set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
 cmake_minimum_required(VERSION 3.14)
 
 project(CherryR_demo)
@@ -12,7 +11,7 @@ include(FetchContent)
 FetchContent_Declare(
   wxwidgets
   GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
-  GIT_TAG        v3.2.4
+  GIT_TAG        v3.3.2
 )
 FetchContent_MakeAvailable(wxwidgets)
 
