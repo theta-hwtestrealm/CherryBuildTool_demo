@@ -20,7 +20,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(wxwidgets)
 
 add_executable(CherryR_demo main.cpp)
-target_link_libraries(CherryR_demo PRIVATE wx::net wx::core wx::base)
+target_link_libraries(CherryR_demo PRIVATE wx::mono) # wx::net wx::core wx::base
 
 if(WIN32)
     set_target_properties(CherryR_demo PROPERTIES 
