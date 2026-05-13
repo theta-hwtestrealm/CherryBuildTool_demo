@@ -6,6 +6,10 @@ if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "Target Yosemite" FORCE)
 endif()
 
+if(WIN32)
+    set_target_properties(CherryR_demo PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
+endif()
+
 include(FetchContent)
 
 FetchContent_Declare(
