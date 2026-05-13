@@ -7,7 +7,8 @@ if(APPLE)
 endif()
 
 if(WIN32)
-    set_target_properties(CherryR_demo PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS")
+    set(wxUSE_WEBVIEW ON CACHE BOOL "Enable Webview")
+    target_link_libraries(CherryR_demo PRIVATE comctl32 rpcrt4 winmm advapi32 wsock32 ws2_32)
 endif()
 
 include(FetchContent)
@@ -15,7 +16,7 @@ include(FetchContent)
 FetchContent_Declare(
   wxwidgets
   GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
-  GIT_TAG        v3.3.2
+  GIT_TAG        v3.2.4
 )
 FetchContent_MakeAvailable(wxwidgets)
 
