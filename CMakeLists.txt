@@ -19,6 +19,8 @@ add_executable(CherryR_demo main.cpp)
 target_link_libraries(CherryR_demo PRIVATE wx::net wx::core wx::base)
 
 if(WIN32)
-    set(wxUSE_WEBVIEW ON CACHE BOOL "Enable Webview")
-    target_link_libraries(CherryR_demo PRIVATE comctl32 rpcrt4 winmm advapi32 wsock32 ws2_32)
+    set_target_properties(CherryR_demo PROPERTIES 
+        WIN32_EXECUTABLE TRUE
+        LINK_FLAGS "/SUBSYSTEM:WINDOWS"
+    )
 endif()
