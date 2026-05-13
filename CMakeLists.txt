@@ -1,4 +1,9 @@
 include(FetchContent)
+
+if(APPLE)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "Target Yosemite" FORCE)
+endif()
+
 FetchContent_Declare(
   wxwidgets
   GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
@@ -6,5 +11,5 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(wxwidgets)
 
-add_executable(MyApp main.cpp)
-target_link_libraries(MyApp PRIVATE wx::net wx::core wx::base)
+add_executable(CherryR_demo main.cpp)
+target_link_libraries(CherryR_demo PRIVATE wx::net wx::core wx::base)
