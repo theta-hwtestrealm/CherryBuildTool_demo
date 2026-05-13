@@ -29,10 +29,6 @@ if(WIN32)
     )
 endif()
 
-if(UNIX AND NOT APPLE)
-    set_target_properties(CherryR_demo PROPERTIES LINK_FLAGS "-mwindows")
-endif()
-
 if(APPLE)
     set_target_properties(CherryR_demo PROPERTIES
         MACOSX_BUNDLE_GUI_IDENTIFIER "com.yourname.CherryR"
