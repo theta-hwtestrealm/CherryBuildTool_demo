@@ -7,6 +7,9 @@ if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "" FORCE)
 endif()
 
+set(wxBUILD_SHARED OFF CACHE BOOL "Static build" FORCE)
+set(wxBUILD_MONOLITHIC ON CACHE BOOL "Single library" FORCE)
+
 include(FetchContent)
 
 FetchContent_Declare(
