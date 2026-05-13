@@ -1,8 +1,12 @@
-include(FetchContent)
+cmake_minimum_required(VERSION 3.14)
+
+project(CherryR_demo)
 
 if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "Target Yosemite" FORCE)
 endif()
+
+include(FetchContent)
 
 FetchContent_Declare(
   wxwidgets
