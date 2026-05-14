@@ -6,16 +6,16 @@ class wxString;
 
 class Pages {
 public:
-    wxPanel* DevicePage(wxSimplebook* Simplebook);
-    wxPanel* JailbreakPage(wxSimplebook* Simplebook);
-    wxPanel* UtilityPage(wxSimplebook* Simplebook);
-    wxPanel* LogsPage(wxSimplebook* Simplebook);
-    wxPanel* InfoPage(wxSimplebook* Simplebook);
+    static wxPanel* DevicePage(wxSimplebook* Simplebook);
+    static wxPanel* JailbreakPage(wxSimplebook* Simplebook);
+    static wxPanel* UtilityPage(wxSimplebook* Simplebook);
+    static wxPanel* LogsPage(wxSimplebook* Simplebook);
+    static wxPanel* InfoPage(wxSimplebook* Simplebook);
 };
 
 class Events {
 public:
-    void OnLogLog(wxString Msg)
+    static void OnLogLog(wxString Msg)
 };
 
 Pages::DevicePage(wxSimplebook* Simplebook) {
