@@ -18,17 +18,17 @@ public:
     static void OnLogLog(wxString Msg)
 };
 
-Pages::DevicePage(wxSimplebook* Simplebook) {
+wxPanel* Pages::DevicePage(wxSimplebook* Simplebook) {
     wxPanel* page = new wxPanel(Simplebook);
     return page;
 }
 
-Pages::JailbreakPage(wxSimplebook* Simplebook) {
+wxPanel* Pages::JailbreakPage(wxSimplebook* Simplebook) {
     wxPanel* page = new wxPanel(Simplebook);
     return page;
 }
 
-Pages::UtilityPage(wxSimplebook* Simplebook) {
+wxPanel* Pages::UtilityPage(wxSimplebook* Simplebook) {
     wxPanel* page = new wxPanel(Simplebook);
     return page;
 }
