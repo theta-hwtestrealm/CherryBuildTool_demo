@@ -30,11 +30,11 @@ private:
     void OnShowLogs_page(wxCommandEvent& event);
     void OnShowInfo_page(wxCommandEvent& event);
 
-    void OnShowExtras(wxCommandEvent& event);
-
     void OnUnimplemented(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
     void OnExit(wxCommandEvent& event);
+
+    wxNotebook* notebook;
 };
  
 enum
@@ -111,9 +111,41 @@ MyFrame::MyFrame()
     topBar->Append(mainMenu, "&Menu");
     topBar->Append(extraMenu, "&Other");
     SetMenuBar( topBar );
- 
     CreateStatusBar();
     //SetStatusText("wxWidgets program");
+
+
+    // create ui skeleton
+    notebook = new wxNotebook(mainPanel, wxID_ANY);
+    wxPanel* panel = new wxPanel(this);
+    wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
+    
+    // create upper selector
+    wxBoxSizer* topBarSizer = new wxBoxSizer(wxHORIZONTAL);
+
+    wxButton* btn1 = new wxButton(panel, wxID_ANY, "Device");
+    wxButton* btn2 = new wxButton(panel, wxID_ANY, "Jailbreak");
+    wxButton* btn3 = new wxButton(panel, wxID_ANY, "Utility");
+    wxButton* btn4 = new wxButton(panel, wxID_ANY, "Logs");
+    wxButton* btn5 = new wxButton(panel, wxID_ANY, "Info");
+
+    topBarSizer->AddStretchSpacer(1); // LSPACE
+    topBarSizer->Add(btn1, 0, wxALL | wxALIGN_TOP, 5);
+    topBarSizer->Add(btn2, 0, wxALL | wxALIGN_TOP, 5);
+    topBarSizer->Add(btn3, 0, wxALL | wxALIGN_TOP, 5);
+    topBarSizer->Add(btn4, 0, wxALL | wxALIGN_TOP, 5);
+    topBarSizer->Add(btn5, 0, wxALL | wxALIGN_TOP, 5);
+    topBarSizer->AddStretchSpacer(1); // RSPACE
+
+    mainSizer->Add(topBarSizer, 0, wxEXPAND | wxALL, 5);
+    mainSizer->Add(text, 1, wxEXPAND | wxALL, 10);
+
+
+    panel->SetSizer(mainSizer);
+
+
+
+    // bindings
     
     Bind(wxEVT_MENU, &MyFrame::OnShowHelp, this, ID_Help);
 
@@ -123,7 +155,13 @@ MyFrame::MyFrame()
     Bind(wxEVT_MENU, &MyFrame::OnShowLogs_page, this, PAGE_Logs);
     Bind(wxEVT_MENU, &MyFrame::OnShowInfo_page, this, PAGE_Info);
 
-    Bind(wxEVT_MENU, &MyFrame::OnShowExtras, this, ID_Theming);
+    btnPage1->Bind(wxEVT_BUTTON, &MyFrame::OnShowDevice_page, this);
+    btnPage2->Bind(wxEVT_BUTTON, &MyFrame::OnShowJailbreak_page, this);
+    btnPage3->Bind(wxEVT_BUTTON, &MyFrame::OnShowUtility_page, this);
+    btnPage4->Bind(wxEVT_BUTTON, &MyFrame::OnShowLogs_page, this);
+    btnPage5->Bind(wxEVT_BUTTON, &MyFrame::OnShowInfo_page, this);
+
+    Bind(wxEVT_MENU, &MyFrame::OnUnimplemented, this, ID_Theming);
 
     Bind(wxEVT_MENU, &MyFrame::OnUnimplemented, this, ID_Test1);
     Bind(wxEVT_MENU, &MyFrame::OnUnimplemented, this, ID_Test2);
@@ -143,43 +181,36 @@ void MyFrame::OnShowHelp(wxCommandEvent& event)
 
 void MyFrame::OnShowDevice_page(wxCommandEvent& event)
 {
+    notebook->SetSelection(0);
     wxLogMessage("Device info");
 }
 
 void MyFrame::OnShowJailbreak_page(wxCommandEvent& event)
 {
+    notebook->SetSelection(1);
     wxLogMessage("jailbreak info");
 }
 
 void MyFrame::OnShowUtility_page(wxCommandEvent& event)
 {
-    wxLogMessage("utiliyu info");
+    notebook->SetSelection(2);
+    wxLogMessage("utility info");
 }
 
 void MyFrame::OnShowLogs_page(wxCommandEvent& event)
 {
+    notebook->SetSelection(3);
     wxLogMessage("logs");
 }
 
 void MyFrame::OnShowInfo_page(wxCommandEvent& event)
 {
+    notebook->SetSelection(4);
     wxLogMessage("info info");
 }
 
 
- 
-void MyFrame::OnShowExtras(wxCommandEvent& event)
-{
-    wxLogMessage("Showing extra theming utilities");
 
-    wxToolBar* toolbar = CreateToolBar();
-    toolbar->AddTool(ID_Test1, "New", wxArtProvider::GetBitmap(wxART_NEW));
-    toolbar->AddTool(ID_Test2, "Open", wxArtProvider::GetBitmap(wxART_FILE_OPEN));
-    
-    toolbar->AddSeparator();
-    toolbar->AddTool(ID_Test3, "Exit", wxArtProvider::GetBitmap(wxART_QUIT));
-    toolbar->Realize();
-}
 
 void MyFrame::OnUnimplemented(wxCommandEvent& event)
 {
