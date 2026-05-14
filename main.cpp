@@ -156,11 +156,11 @@ MyFrame::MyFrame()
     Bind(wxEVT_MENU, &MyFrame::OnShowLogs_page, this, PAGE_Logs);
     Bind(wxEVT_MENU, &MyFrame::OnShowInfo_page, this, PAGE_Info);
 
-    btnPage1->Bind(wxEVT_BUTTON, &MyFrame::OnShowDevice_page, this);
-    btnPage2->Bind(wxEVT_BUTTON, &MyFrame::OnShowJailbreak_page, this);
-    btnPage3->Bind(wxEVT_BUTTON, &MyFrame::OnShowUtility_page, this);
-    btnPage4->Bind(wxEVT_BUTTON, &MyFrame::OnShowLogs_page, this);
-    btnPage5->Bind(wxEVT_BUTTON, &MyFrame::OnShowInfo_page, this);
+    btn1->Bind(wxEVT_BUTTON, &MyFrame::OnShowDevice_page, this);
+    btn2->Bind(wxEVT_BUTTON, &MyFrame::OnShowJailbreak_page, this);
+    btn3->Bind(wxEVT_BUTTON, &MyFrame::OnShowUtility_page, this);
+    btn4->Bind(wxEVT_BUTTON, &MyFrame::OnShowLogs_page, this);
+    btn5->Bind(wxEVT_BUTTON, &MyFrame::OnShowInfo_page, this);
 
     Bind(wxEVT_MENU, &MyFrame::OnUnimplemented, this, ID_Theming);
 
