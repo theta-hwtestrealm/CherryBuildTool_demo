@@ -13,17 +13,18 @@
 
 #include "main.hpp"
 
+wxScrolledWindow* scrollPage;
 wxBoxSizer* pageSizer;
 
 wxPanel* Pages::LogsPage(wxSimplebook* Simplebook) {
-    wxScrolledWindow* scrollPage = new wxScrolledWindow(Simplebook, wxID_ANY);
+    scrollPage = new wxScrolledWindow(Simplebook, wxID_ANY);
     scrollPage->SetScrollRate(0, 10);
     pageSizer = new wxBoxSizer(wxVERTICAL);
     //pageSizer->Add(new wxStaticText(scrollPage, wxID_ANY, "--- START OF LOGS ---"), 0, wxALL, 10);
 
     wxHtmlWindow* newHTML = new wxHtmlWindow(scrollPage, wxID_ANY);
     const wxString source = "<b>--- START OF LOGS ---</b>";
-    newHTML->AppendToPage(&source);
+    newHTML->AppendToPage(source);
     pageSizer->Add(newHTML, 0, wxALL, 10);
 
     for(int i = 1; i <= 50; ++i) {
@@ -39,7 +40,7 @@ wxPanel* Pages::LogsPage(wxSimplebook* Simplebook) {
 void Events::OnLogLog(wxString Msg) {
     wxHtmlWindow* newHTML = new wxHtmlWindow(scrollPage, wxID_ANY);
     const wxString source = Msg;
-    newHTML->AppendToPage(&source);
+    newHTML->AppendToPage(source);
     pageSizer->Add(newHTML, 0, wxALL, 10);
 }
 
