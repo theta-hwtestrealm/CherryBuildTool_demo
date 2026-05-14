@@ -5,8 +5,8 @@
     #include <wx/wx.h>
 #endif
 
-const LABEL = "Cherryra1n";
-const VER = "0.0";
+const wxString LABEL = "Cherryra1n";
+const wxString VER = "0.0";
 
 //test
  
