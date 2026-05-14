@@ -1,5 +1,5 @@
 #include <wx/wxprec.h>
-#include <wx/notebook.h>
+#include <wx/simplebook.h>
 #include <wx/button.h>
  
 #ifndef WX_PRECOMP
@@ -35,7 +35,7 @@ private:
     void OnAbout(wxCommandEvent& event);
     void OnExit(wxCommandEvent& event);
 
-    wxNotebook* notebook;
+    wxSimplebook* Simplebook;
 };
  
 enum
@@ -119,7 +119,7 @@ MyFrame::MyFrame()
     // create ui skeleton
     wxPanel* panel = new wxPanel(this);
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
-    notebook = new wxNotebook(panel, wxID_ANY);
+    Simplebook = new wxSimplebook(mainPanel, wxID_ANY);
     
     // create upper selector
     wxBoxSizer* topSizerBar = new wxBoxSizer(wxHORIZONTAL);
@@ -138,17 +138,17 @@ MyFrame::MyFrame()
     topSizerBar->Add(btn5, 0, wxALL | wxALIGN_TOP, 5);
     topSizerBar->AddStretchSpacer(1); // RSPACE
 
-    wxPanel* page1 = new wxPanel(notebook);
+    wxPanel* page1 = new wxPanel(simplebook);
     new wxStaticText(page1, wxID_ANY, "THIS IS PAGE ONE", wxPoint(20, 20));
 
-    wxPanel* page2 = new wxPanel(notebook);
+    wxPanel* page2 = new wxPanel(simplebook);
     new wxStaticText(page2, wxID_ANY, "THIS IS PAGE TWO", wxPoint(20, 20));
 
-    notebook->AddPage(page1, "Tab 1");
-    notebook->AddPage(page2, "Tab 2");
+    simplebook->AddPage(page1, "P1");
+    simplebook->AddPage(page2, "P2");
 
     mainSizer->Add(topSizerBar, 0, wxEXPAND | wxALL, 5);
-    mainSizer->Add(notebook, 1, wxEXPAND | wxALL, 10);
+    mainSizer->Add(simplebook, 1, wxEXPAND | wxALL, 10);
 
 
     panel->SetSizer(mainSizer);
@@ -191,32 +191,27 @@ void MyFrame::OnShowHelp(wxCommandEvent& event)
 
 void MyFrame::OnShowDevice_page(wxCommandEvent& event)
 {
-    notebook->SetSelection(0);
-    wxLogMessage("Device info");
+    simplebook->SetSelection(0);
 }
 
 void MyFrame::OnShowJailbreak_page(wxCommandEvent& event)
 {
-    notebook->SetSelection(1);
-    wxLogMessage("jailbreak info");
+    simplebook->SetSelection(1);
 }
 
 void MyFrame::OnShowUtility_page(wxCommandEvent& event)
 {
-    notebook->SetSelection(2);
-    wxLogMessage("utility info");
+    simplebook->SetSelection(2);
 }
 
 void MyFrame::OnShowLogs_page(wxCommandEvent& event)
 {
-    notebook->SetSelection(3);
-    wxLogMessage("logs");
+    simplebook->SetSelection(3);
 }
 
 void MyFrame::OnShowInfo_page(wxCommandEvent& event)
 {
-    notebook->SetSelection(4);
-    wxLogMessage("info info");
+    simplebook->SetSelection(4);
 }
 
 
@@ -226,6 +221,7 @@ void MyFrame::OnUnimplemented(wxCommandEvent& event)
 {
     wxMessageBox("Unimplemented feature.",
                  LABEL, wxOK | wxICON_INFORMATION);
+    //wxLogMessage("info");
 }
 
 void MyFrame::OnAbout(wxCommandEvent& event)
