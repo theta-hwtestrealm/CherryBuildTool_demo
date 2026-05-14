@@ -138,6 +138,35 @@ void MyFrame::OnShowHelp(wxCommandEvent& event)
     wxMessageBox("[Giving Help]",
                  LABEL, wxOK | wxICON_INFORMATION);
 }
+
+
+
+void MyFrame::OnShowDevice_page(wxCommandEvent& event)
+{
+    wxLogMessage("Device info");
+}
+
+void MyFrame::OnShowJailbreak_page(wxCommandEvent& event)
+{
+    wxLogMessage("jailbreak info");
+}
+
+void MyFrame::OnShowUtility_page(wxCommandEvent& event)
+{
+    wxLogMessage("utiliyu info");
+}
+
+void MyFrame::OnShowLogs_page(wxCommandEvent& event)
+{
+    wxLogMessage("logs");
+}
+
+void MyFrame::OnShowInfo_page(wxCommandEvent& event)
+{
+    wxLogMessage("info info");
+}
+
+
  
 void MyFrame::OnShowExtras(wxCommandEvent& event)
 {
