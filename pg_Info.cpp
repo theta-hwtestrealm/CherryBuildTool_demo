@@ -6,6 +6,7 @@
 #endif
 
 #include <wx/simplebook.h>
+#include <wx/stattext.h>
 
 #include "main.hpp"
 

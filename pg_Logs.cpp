@@ -1,6 +1,12 @@
 
 #include <wx/wxprec.h>
-#include <wx/panel.h>
+
+#ifndef WX_PRECOMP
+    #include <wx/wx.h>
+#endif
+
+#include <wx/scrolwin.h>
+#include <wx/sizer.h>
 #include <wx/stattext.h>
 #include <wx/simplebook.h>
 
