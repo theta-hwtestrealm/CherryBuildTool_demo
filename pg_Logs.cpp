@@ -24,7 +24,7 @@ wxPanel* Pages::LogsPage(wxSimplebook* Simplebook) {
     wxHtmlWindow* newHTML = new wxHtmlWindow(scrollPage, wxID_ANY);
     const wxString source = "<b>--- START OF LOGS ---</b>";
     newHTML->AppendToPage(&source);
-    pageSizer->Add(wxHtmlWindow, 0, wxALL, 10);
+    pageSizer->Add(newHTML, 0, wxALL, 10);
 
     for(int i = 1; i <= 50; ++i) {
         wxString logMsg = wxString::Format("Log Entry #%d: Testimng...", i);
@@ -37,9 +37,10 @@ wxPanel* Pages::LogsPage(wxSimplebook* Simplebook) {
 }
 
 void Events::OnLogLog(wxString Msg) {
+    wxHtmlWindow* newHTML = new wxHtmlWindow(scrollPage, wxID_ANY);
     const wxString source = Msg;
     newHTML->AppendToPage(&source);
-    pageSizer->Add(wxHtmlWindow, 0, wxALL, 10);
+    pageSizer->Add(newHTML, 0, wxALL, 10);
 }
 
 wxPanel* Pages::DevicePage(wxSimplebook* Simplebook) {
