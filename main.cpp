@@ -144,11 +144,11 @@ MyFrame::MyFrame()
     wxPanel* page2 = new wxPanel(simplebook);
     new wxStaticText(page2, wxID_ANY, "THIS IS PAGE TWO", wxPoint(20, 20));
 
-    simplebook->AddPage(page1, "P1");
-    simplebook->AddPage(page2, "P2");
+    Simplebook->AddPage(page1, "P1");
+    Simplebook->AddPage(page2, "P2");
 
     mainSizer->Add(topSizerBar, 0, wxEXPAND | wxALL, 5);
-    mainSizer->Add(simplebook, 1, wxEXPAND | wxALL, 10);
+    mainSizer->Add(Simplebook, 1, wxEXPAND | wxALL, 10);
 
 
     panel->SetSizer(mainSizer);
@@ -191,27 +191,27 @@ void MyFrame::OnShowHelp(wxCommandEvent& event)
 
 void MyFrame::OnShowDevice_page(wxCommandEvent& event)
 {
-    simplebook->SetSelection(0);
+    Simplebook->SetSelection(0);
 }
 
 void MyFrame::OnShowJailbreak_page(wxCommandEvent& event)
 {
-    simplebook->SetSelection(1);
+    Simplebook->SetSelection(1);
 }
 
 void MyFrame::OnShowUtility_page(wxCommandEvent& event)
 {
-    simplebook->SetSelection(2);
+    Simplebook->SetSelection(2);
 }
 
 void MyFrame::OnShowLogs_page(wxCommandEvent& event)
 {
-    simplebook->SetSelection(3);
+    Simplebook->SetSelection(3);
 }
 
 void MyFrame::OnShowInfo_page(wxCommandEvent& event)
 {
-    simplebook->SetSelection(4);
+    Simplebook->SetSelection(4);
 }
 
 
