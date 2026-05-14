@@ -15,7 +15,7 @@ public:
 
 class Events {
 public:
-    static void OnLogLog(wxString Msg)
+    static void OnLogLog(wxString Msg);
 };
 
 wxPanel* Pages::DevicePage(wxSimplebook* Simplebook) {

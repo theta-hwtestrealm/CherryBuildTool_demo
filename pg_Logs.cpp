@@ -20,6 +20,7 @@ wxPanel* Pages::LogsPage(wxSimplebook* Simplebook) {
 
     Events::OnLogLog(wxString Msg) {
         pageSizer->Add(new wxStaticText(scrollPage, wxID_ANY, Msg), 0, wxLEFT | wxRIGHT | wxBOTTOM, 10);
+        return;
     }
 
     return scrollPage;

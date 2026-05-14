@@ -190,7 +190,7 @@ void MyFrame::OnShowHelp(wxCommandEvent& event)
 void MyFrame::OnShowDevice_page(wxCommandEvent& event)
 {
     Simplebook->SetSelection(0);
-    Events::OnLogLog(wxString "Hello")
+    Events::OnLogLog(static_cast<wxString>("Hello"))
 }
 
 void MyFrame::OnShowJailbreak_page(wxCommandEvent& event)
