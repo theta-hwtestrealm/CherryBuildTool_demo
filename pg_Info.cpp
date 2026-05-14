@@ -5,6 +5,8 @@
     #include <wx/wx.h>
 #endif
 
+#include <wx/simplebook.h>
+
 #include "main.hpp"
 
 wxPanel* Pages::InfoPage(wxSimplebook* Simplebook) {
