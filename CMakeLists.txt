@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 3.14)
 
 project(CherryR_demo)
 
+set(SOURCES
+    main.cpp
+    pg_Info.cpp
+    pg_Logs.cpp
+)
+
 if(APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64" CACHE STRING "" FORCE) #"arm64;x86_64"
     set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "" FORCE)
@@ -20,7 +26,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(wxwidgets)
 
 
-add_executable(CherryR_demo MACOSX_BUNDLE main.cpp)
+add_executable(CherryR_demo MACOSX_BUNDLE ${SOURCES})
 target_link_libraries(CherryR_demo PRIVATE wx::mono) # wx::net wx::core wx::base
 
 if(WIN32)
