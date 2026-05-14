@@ -7,6 +7,8 @@
 
 const LABEL = "Cherryra1n";
 const VER = "0.0";
+
+//test
  
 class MyApp : public wxApp
 {
