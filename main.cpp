@@ -1,6 +1,9 @@
 #include <wx/wxprec.h>
 #include <wx/simplebook.h>
 #include <wx/button.h>
+#include <wx/scrolwin.h>
+
+#include "main.hpp"
  
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
@@ -9,7 +12,6 @@
 const wxString LABEL = "Cherryra1n";
 const wxString VER = "0.0";
 
-//test
  
 class MyApp : public wxApp
 {
@@ -138,19 +140,15 @@ MyFrame::MyFrame()
     topSizerBar->Add(btn5, 0, wxALL | wxALIGN_TOP, 5);
     topSizerBar->AddStretchSpacer(1); // RSPACE
 
-    wxPanel* page1 = new wxPanel(Simplebook);
-    new wxStaticText(page1, wxID_ANY, "THIS IS PAGE ONE", wxPoint(20, 20));
+    Simplebook->AddPage(Pages::DevicePage(Simplebook), "P1");
+    Simplebook->AddPage(Pages::JailbreakPage(Simplebook), "P2");
+    Simplebook->AddPage(Pages::UtilityPage(Simplebook), "P3");
+    Simplebook->AddPage(Pages::LogsPage(Simplebook), "P4");
+    Simplebook->AddPage(Pages::InfoPage(Simplebook), "P5");
 
-    wxPanel* page2 = new wxPanel(Simplebook);
-    new wxStaticText(page2, wxID_ANY, "THIS IS PAGE TWO", wxPoint(20, 20));
-
-    Simplebook->AddPage(page1, "P1");
-    Simplebook->AddPage(page2, "P2");
 
     mainSizer->Add(topSizerBar, 0, wxEXPAND | wxALL, 5);
     mainSizer->Add(Simplebook, 1, wxEXPAND | wxALL, 10);
-
-
     panel->SetSizer(mainSizer);
 
 
@@ -192,6 +190,7 @@ void MyFrame::OnShowHelp(wxCommandEvent& event)
 void MyFrame::OnShowDevice_page(wxCommandEvent& event)
 {
     Simplebook->SetSelection(0);
+    Events::OnLogLog(wxString "Hello")
 }
 
 void MyFrame::OnShowJailbreak_page(wxCommandEvent& event)
