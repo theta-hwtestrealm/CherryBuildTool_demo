@@ -35,15 +35,15 @@ private:
  
 enum
 {
-    ID_Help = 1
+    ID_Help = 1,
     
-    PAGE_Device = 2
-    PAGE_Jailbreak = 3
-    PAGE_Utility = 4
-    PAGE_Logs = 5
-    PAGE_Info = 6
+    PAGE_Device,
+    PAGE_Jailbreak,
+    PAGE_Utility,
+    PAGE_Logs,
+    PAGE_Info,
 
-    ID_Theming = 7
+    ID_Theming
 };
  
 wxIMPLEMENT_APP(MyApp);
