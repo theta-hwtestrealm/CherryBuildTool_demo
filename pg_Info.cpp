@@ -1,6 +1,9 @@
 
 #include <wx/wxprec.h>
-#include <wx/simplebook.h>
+
+#ifndef WX_PRECOMP
+    #include <wx/wx.h>
+#endif
 
 #include "main.hpp"
 
