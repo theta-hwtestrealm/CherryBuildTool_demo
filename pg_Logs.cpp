@@ -9,14 +9,22 @@
 #include <wx/sizer.h>
 #include <wx/stattext.h>
 #include <wx/simplebook.h>
+#include <wx/html/htmlwin.h>
 
 #include "main.hpp"
+
+wxBoxSizer* pageSizer;
 
 wxPanel* Pages::LogsPage(wxSimplebook* Simplebook) {
     wxScrolledWindow* scrollPage = new wxScrolledWindow(Simplebook, wxID_ANY);
     scrollPage->SetScrollRate(0, 10);
-    wxBoxSizer* pageSizer = new wxBoxSizer(wxVERTICAL);
-    pageSizer->Add(new wxStaticText(scrollPage, wxID_ANY, "--- START OF LOGS ---"), 0, wxALL, 10);
+    pageSizer = new wxBoxSizer(wxVERTICAL);
+    //pageSizer->Add(new wxStaticText(scrollPage, wxID_ANY, "--- START OF LOGS ---"), 0, wxALL, 10);
+
+    wxHtmlWindow* newHTML = new wxHtmlWindow(scrollPage, wxID_ANY);
+    const wxString source = "<b>--- START OF LOGS ---</b>";
+    newHTML->AppendToPage(&source);
+    pageSizer->Add(wxHtmlWindow, 0, wxALL, 10);
 
     for(int i = 1; i <= 50; ++i) {
         wxString logMsg = wxString::Format("Log Entry #%d: Testimng...", i);
@@ -29,6 +37,9 @@ wxPanel* Pages::LogsPage(wxSimplebook* Simplebook) {
 }
 
 void Events::OnLogLog(wxString Msg) {
+    const wxString source = Msg;
+    newHTML->AppendToPage(&source);
+    pageSizer->Add(wxHtmlWindow, 0, wxALL, 10);
 }
 
 wxPanel* Pages::DevicePage(wxSimplebook* Simplebook) {
