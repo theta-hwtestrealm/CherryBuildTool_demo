@@ -138,10 +138,10 @@ MyFrame::MyFrame()
     topSizerBar->Add(btn5, 0, wxALL | wxALIGN_TOP, 5);
     topSizerBar->AddStretchSpacer(1); // RSPACE
 
-    wxPanel* page1 = new wxPanel(simplebook);
+    wxPanel* page1 = new wxPanel(Simplebook);
     new wxStaticText(page1, wxID_ANY, "THIS IS PAGE ONE", wxPoint(20, 20));
 
-    wxPanel* page2 = new wxPanel(simplebook);
+    wxPanel* page2 = new wxPanel(Simplebook);
     new wxStaticText(page2, wxID_ANY, "THIS IS PAGE TWO", wxPoint(20, 20));
 
     Simplebook->AddPage(page1, "P1");
