@@ -119,10 +119,9 @@ MyFrame::MyFrame()
     // create ui skeleton
     wxPanel* panel = new wxPanel(this);
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
-    notebook = new wxNotebook(panel, wxID_ANY);
     
     // create upper selector
-    wxBoxSizer* topBarSizer = new wxBoxSizer(wxHORIZONTAL);
+    wxBoxSizer* topBar = new wxBoxSizer(wxHORIZONTAL);
 
     wxButton* btn1 = new wxButton(panel, wxID_ANY, "Device");
     wxButton* btn2 = new wxButton(panel, wxID_ANY, "Jailbreak");
@@ -130,16 +129,25 @@ MyFrame::MyFrame()
     wxButton* btn4 = new wxButton(panel, wxID_ANY, "Logs");
     wxButton* btn5 = new wxButton(panel, wxID_ANY, "Info");
 
-    topBarSizer->AddStretchSpacer(1); // LSPACE
-    topBarSizer->Add(btn1, 0, wxALL | wxALIGN_TOP, 5);
-    topBarSizer->Add(btn2, 0, wxALL | wxALIGN_TOP, 5);
-    topBarSizer->Add(btn3, 0, wxALL | wxALIGN_TOP, 5);
-    topBarSizer->Add(btn4, 0, wxALL | wxALIGN_TOP, 5);
-    topBarSizer->Add(btn5, 0, wxALL | wxALIGN_TOP, 5);
-    topBarSizer->AddStretchSpacer(1); // RSPACE
+    topBar->AddStretchSpacer(1); // LSPACE
+    topBar->Add(btn1, 0, wxALL | wxALIGN_TOP, 5);
+    topBar->Add(btn2, 0, wxALL | wxALIGN_TOP, 5);
+    topBar->Add(btn3, 0, wxALL | wxALIGN_TOP, 5);
+    topBar->Add(btn4, 0, wxALL | wxALIGN_TOP, 5);
+    topBar->Add(btn5, 0, wxALL | wxALIGN_TOP, 5);
+    topBar->AddStretchSpacer(1); // RSPACE
 
-    mainSizer->Add(topBarSizer, 0, wxEXPAND | wxALL, 5);
-    mainSizer->Add(text, 1, wxEXPAND | wxALL, 10);
+    wxPanel* page1 = new wxPanel(notebook);
+    new wxStaticText(page1, wxID_ANY, "THIS IS PAGE ONE", wxPoint(20, 20));
+
+    wxPanel* page2 = new wxPanel(notebook);
+    new wxStaticText(page2, wxID_ANY, "THIS IS PAGE TWO", wxPoint(20, 20));
+
+    notebook->AddPage(page1, "Tab 1");
+    notebook->AddPage(page2, "Tab 2");
+
+    mainSizer->Add(topBar, 0, wxEXPAND | wxALL, 5);
+    mainSizer->Add(notebook, 1, wxEXPAND | wxALL, 10);
 
 
     panel->SetSizer(mainSizer);
