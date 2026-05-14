@@ -1,5 +1,6 @@
 #include <wx/wxprec.h>
-#include <wx/artprov.h>
+#include <wx/notebook.h>
+#include <wx/button.h>
  
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
