@@ -18,20 +18,3 @@ public:
     static void OnLogLog(wxString Msg);
 };
 
-void Events::OnLogLog(wxString Msg) {
-}
-
-wxPanel* Pages::DevicePage(wxSimplebook* Simplebook) {
-    wxPanel* page = new wxPanel(Simplebook);
-    return page;
-}
-
-wxPanel* Pages::JailbreakPage(wxSimplebook* Simplebook) {
-    wxPanel* page = new wxPanel(Simplebook);
-    return page;
-}
-
-wxPanel* Pages::UtilityPage(wxSimplebook* Simplebook) {
-    wxPanel* page = new wxPanel(Simplebook);
-    return page;
-}
