@@ -1,0 +1,12 @@
+
+#include <wx/wxprec.h>
+#include <wx/simplebook.h>
+
+#include "main.hpp"
+
+wxPanel* Pages::InfoPage(wxSimplebook* Simplebook) {
+    wxPanel* page = new wxPanel(Simplebook);
+    new wxStaticText(page, wxID_ANY, "INFORMATION PAGE", wxPoint(20, 20));
+
+    return page;
+}
