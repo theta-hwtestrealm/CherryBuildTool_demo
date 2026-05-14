@@ -1,4 +1,5 @@
 #include <wx/wxprec.h>
+#include <wx/artprov.h>
  
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
@@ -29,6 +30,7 @@ private:
 
     void OnShowExtras(wxCommandEvent& event);
 
+    void OnUnimplemented(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
     void OnExit(wxCommandEvent& event);
 };
@@ -43,7 +45,11 @@ enum
     PAGE_Logs,
     PAGE_Info,
 
-    ID_Theming
+    ID_Theming,
+
+    ID_Test1,
+    ID_Test2,
+    ID_Test3
 };
  
 wxIMPLEMENT_APP(MyApp);
@@ -117,6 +123,10 @@ MyFrame::MyFrame()
 
     Bind(wxEVT_MENU, &MyFrame::OnShowExtras, this, ID_Theming);
 
+    Bind(wxEVT_MENU, &MyFrame::OnUnimplemented, this, ID_Test1);
+    Bind(wxEVT_MENU, &MyFrame::OnUnimplemented, this, ID_Test2);
+    Bind(wxEVT_MENU, &MyFrame::OnUnimplemented, this, ID_Test3);
+
     Bind(wxEVT_MENU, &MyFrame::OnAbout, this, wxID_ABOUT);
     Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
 }
@@ -132,12 +142,18 @@ void MyFrame::OnShowExtras(wxCommandEvent& event)
     wxLogMessage("Showing extra theming utilities");
 
     wxToolBar* toolbar = CreateToolBar();
-    toolbar->AddTool(wxID_NEW, "New", wxArtProvider::GetBitmap(wxART_NEW));
-    toolbar->AddTool(wxID_OPEN, "Open", wxArtProvider::GetBitmap(wxART_FILE_OPEN));
+    toolbar->AddTool(ID_Test1, "New", wxArtProvider::GetBitmap(wxART_NEW));
+    toolbar->AddTool(ID_Test2, "Open", wxArtProvider::GetBitmap(wxART_FILE_OPEN));
     
     toolbar->AddSeparator();
-    toolbar->AddTool(wxID_EXIT, "Exit", wxArtProvider::GetBitmap(wxART_QUIT));
+    toolbar->AddTool(ID_Test3, "Exit", wxArtProvider::GetBitmap(wxART_QUIT));
     toolbar->Realize();
+}
+
+void MyFrame::OnUnimplemented(wxCommandEvent& event)
+{
+    wxMessageBox("Unimplemented feature.",
+                 LABEL, wxOK | wxICON_INFORMATION);
 }
 
 void MyFrame::OnAbout(wxCommandEvent& event)
