@@ -35,15 +35,15 @@ private:
  
 enum
 {
-    ID_Help = 1;
+    ID_Help = 1
     
-    PAGE_Device = 2;
-    PAGE_Jailbreak = 3;
-    PAGE_Utility = 4;
-    PAGE_Logs = 5;
-    PAGE_Info = 6;
+    PAGE_Device = 2
+    PAGE_Jailbreak = 3
+    PAGE_Utility = 4
+    PAGE_Logs = 5
+    PAGE_Info = 6
 
-    ID_Theming = 7;
+    ID_Theming = 7
 };
  
 wxIMPLEMENT_APP(MyApp);
@@ -100,10 +100,8 @@ MyFrame::MyFrame()
 
     // Set Topbar
     wxMenuBar *topBar = new wxMenuBar;
-    topBar->Append(mainMenu, "&Menu\tCtrl-H",
-                     "Select..");
-    topBar->Append(extraMenu, "&Other\tCtrl-H",
-                     "More options..");
+    topBar->Append(mainMenu, "&Menu");
+    topBar->Append(extraMenu, "&Other");
     SetMenuBar( topBar );
  
     CreateStatusBar();
@@ -139,7 +137,7 @@ void MyFrame::OnShowExtras(wxCommandEvent& event)
     
     toolbar->AddSeparator();
     toolbar->AddTool(wxID_EXIT, "Exit", wxArtProvider::GetBitmap(wxART_QUIT));
-    toolbar->Realize()
+    toolbar->Realize();
 }
 
 void MyFrame::OnAbout(wxCommandEvent& event)
