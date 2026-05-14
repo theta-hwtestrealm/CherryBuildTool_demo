@@ -19,7 +19,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(wxwidgets)
 
-add_executable(CherryR_demo main.cpp)
+
+add_executable(CherryR_demo MACOSX_BUNDLE main.cpp)
 target_link_libraries(CherryR_demo PRIVATE wx::mono) # wx::net wx::core wx::base
 
 if(WIN32)
