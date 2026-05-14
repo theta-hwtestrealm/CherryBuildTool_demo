@@ -117,9 +117,9 @@ MyFrame::MyFrame()
 
 
     // create ui skeleton
-    notebook = new wxNotebook(mainPanel, wxID_ANY);
     wxPanel* panel = new wxPanel(this);
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
+    notebook = new wxNotebook(panel, wxID_ANY);
     
     // create upper selector
     wxBoxSizer* topBarSizer = new wxBoxSizer(wxHORIZONTAL);
