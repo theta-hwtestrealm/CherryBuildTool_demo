@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(CherryR_demo)
+project(CherryRa1n)
 
 set(SOURCES
     main.cpp
@@ -26,18 +26,18 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(wxwidgets)
 
 
-add_executable(CherryR_demo MACOSX_BUNDLE ${SOURCES})
-target_link_libraries(CherryR_demo PRIVATE wx::mono) # wx::net wx::core wx::base
+add_executable(CherryRa1n ${SOURCES})
+target_link_libraries(CherryRa1n PRIVATE wx::mono) # wx::net wx::core wx::base
 
 if(WIN32)
-    set_target_properties(CherryR_demo PROPERTIES 
+    set_target_properties(CherryRa1n PROPERTIES 
         WIN32_EXECUTABLE TRUE
         LINK_FLAGS "/SUBSYSTEM:WINDOWS"
     )
 endif()
 
 if(APPLE)
-    set_target_properties(CherryR_demo PROPERTIES
+    set_target_properties(CherryRa1n PROPERTIES
         MACOSX_BUNDLE_GUI_IDENTIFIER "com.yourname.CherryR"
         MACOSX_BUNDLE_BUNDLE_NAME "CherryR"
         MACOSX_BUNDLE_BUNDLE_VERSION "1.0.0"
