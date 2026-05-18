@@ -31,10 +31,10 @@ jobs:
             ${{ runner.os }}-wx-v3.3.2-
 
       - name: Configure CMake
-        run: cmake -B build -DCMAKE_BUILD_TYPE=Release .
+        run: cmake -S ${{ matrix.app }} -B build -DCMAKE_BUILD_TYPE=Release .
 
       - name: Build App
-        run: cmake -S ${{ matrix.app }} --build build --config Release --parallel 2
+        run: cmake --build build --config Release --parallel 2
 
       - name: upload finished program
         uses: actions/upload-artifact@v4
