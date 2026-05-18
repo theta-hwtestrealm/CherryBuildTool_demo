@@ -7,6 +7,15 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
+        app: [CherryRa1n, prerun]
+        exclude:
+          - app: prerun
+            os: macos-latest
+    
+
+    defaults:
+      run:
+        working-directory: ./${{ matrix.app }}
 
     steps:
       - name: Checkout Code
@@ -32,11 +41,12 @@ jobs:
       - name: Build App
         run: cmake --build build --config Release --parallel 2
 
-      - name: Upload Finished Program
+      - name: upload finished program
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.os }}-binary
+          name: ${{ matrix.os }}-${{ matrix.app }}-binary
           path: |
-            build/Release/*.exe
-            build/CherryR_demo
-            build/*.app
+            config.json
+            ${{ matrix.app }}/build/release/*.exe
+            ${{ matrix.app }}/build/${{ matrix.app }}
+            ${{ matrix.app }}/build/*.app

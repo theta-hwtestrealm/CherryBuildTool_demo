@@ -9,9 +9,6 @@
     #include <wx/wx.h>
 #endif
 
-const wxString LABEL = "Cherryra1n";
-const wxString VER = "0.0";
-
  
 class MyApp : public wxApp
 {
@@ -67,7 +64,7 @@ bool MyApp::OnInit()
 }
  
 MyFrame::MyFrame()
-    : wxFrame(NULL, wxID_ANY, (LABEL + " V" + VER)) //set topmost text
+    : wxFrame(NULL, wxID_ANY, ("Cherryra1n OSS"))
 {
 
     // Create "Main/Navigation menu" (alternative navigation to gui buttons)

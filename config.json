@@ -1,0 +1,10 @@
+{
+    "version": 0.00,
+    "checkUpdates": true,
+    "bytesRecommendedFree": 5368709120,
+    "accessiblePages": {
+        "demoPageBundleName": {
+            "demoPageName": "tool"
+        }
+    }
+}
