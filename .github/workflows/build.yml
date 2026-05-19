@@ -41,7 +41,6 @@ jobs:
         with:
           name: ${{ matrix.os }}-${{ matrix.app }}-binary
           path: |
-            config.json
             build/release/*.exe
             build/${{ matrix.app }}
             build/*.app
