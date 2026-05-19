@@ -9,9 +9,6 @@
 
 #include <cJSON.h>
 
-
-wxString exeName = "CherryRa1n";
-
 wxString getScriptDir();
 wxString dirExists(wxString fromRoot, wxString subDir);
 wxString verifyFile(wxString fromRoot, wxString fileName);
@@ -26,7 +23,9 @@ public:
 };
 
 #ifdef __WINDOWS__
-    exeName = exeName + ".exe"
+    wxString exeName = "CherryRa1n.exe";
+#else
+    wxString exeName = "CherryRa1n";
 #endif
 
 
@@ -118,7 +117,7 @@ wxString verifyFile(wxString fromRoot, wxString fileName) {
 }
 
 wxString panicVerifyFile(wxString fromRoot, wxString fileName) {
-    bool result = verifyFile(wxString fromRoot, wxString fileName);
+    bool result = verifyFile(fromRoot, fileName);
 
     if (result == "") {
         wxMessageBox("Fatal! the app is damaged and must be reinstalled",
