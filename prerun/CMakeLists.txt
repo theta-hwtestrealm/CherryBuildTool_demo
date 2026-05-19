@@ -24,9 +24,11 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(cJSON wxwidgets)
 
-target_include_directories(prerun PRIVATE ${cjson_SOURCE_DIR})
 
 add_executable(prerun ${SOURCES})
+
+target_include_directories(prerun PRIVATE ${cjson_SOURCE_DIR})
+
 target_link_libraries(prerun PRIVATE 
     wx::mono
     cjson
