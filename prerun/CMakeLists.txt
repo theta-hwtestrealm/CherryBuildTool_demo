@@ -22,7 +22,7 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/wxWidgets/wxWidgets.git
   GIT_TAG        v3.3.2
 )
-FetchContent_MakeAvailable(json wxwidgets)
+FetchContent_MakeAvailable(cJSON wxwidgets)
 
 add_executable(prerun ${SOURCES})
 target_link_libraries(prerun PRIVATE 
