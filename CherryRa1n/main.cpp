@@ -9,7 +9,7 @@
     #include <wx/wx.h>
 #endif
 
-wxString appname = "CherryRa1n"
+wxString appname = "CherryRa1n";
 
  
 class MyApp : public wxApp
