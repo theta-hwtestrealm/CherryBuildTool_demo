@@ -117,7 +117,7 @@ wxString verifyFile(wxString fromRoot, wxString fileName) {
 }
 
 wxString panicVerifyFile(wxString fromRoot, wxString fileName) {
-    bool result = verifyFile(fromRoot, fileName);
+    wxString result = verifyFile(fromRoot, fileName);
 
     if (result == "") {
         wxMessageBox("Fatal! the app is damaged and must be reinstalled",
