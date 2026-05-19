@@ -13,7 +13,7 @@ include(FetchContent)
 
 FetchContent_Declare(
   cJSON
-  URL https://github.com/DaveGamble/cJSON
+  GIT_REPOSITORY https://github.com/DaveGamble/cJSON
   GIT_TAG        v1.7.19
 )
 
