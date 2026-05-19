@@ -27,7 +27,7 @@ FetchContent_MakeAvailable(cJSON wxwidgets)
 add_executable(prerun ${SOURCES})
 target_link_libraries(prerun PRIVATE 
     wx::mono
-    nlohmann_json::nlohmann_json
+    cJSON::cJSON
 ) # wx::net wx::core wx::base
 
 if(WIN32)
