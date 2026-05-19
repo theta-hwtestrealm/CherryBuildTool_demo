@@ -110,7 +110,7 @@ wxString verifyFile(wxString fromRoot, wxString fileName) {
     fn.AssignDir(fromRoot);
     fn.SetFullName(fileName);
 
-    if (fn.verifyFile()) {
+    if (fn.FileExists()) {
         return fn.GetFullPath();
     }
     return "";
