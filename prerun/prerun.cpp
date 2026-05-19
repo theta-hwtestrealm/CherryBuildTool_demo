@@ -124,6 +124,8 @@ wxString panicVerifyFile(wxString fromRoot, wxString fileName) {
                  fileName, wxOK | wxICON_INFORMATION);
         wxExit();
     }
+
+    return result;
 }
 
 wxLongLong verifyVolumeSize(wxString root) {
