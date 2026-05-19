@@ -9,6 +9,8 @@
     #include <wx/wx.h>
 #endif
 
+wxString appname = "CherryRa1n"
+
  
 class MyApp : public wxApp
 {
@@ -179,7 +181,7 @@ MyFrame::MyFrame()
 void MyFrame::OnShowHelp(wxCommandEvent& event)
 {
     wxMessageBox("[Giving Help]",
-                 LABEL, wxOK | wxICON_INFORMATION);
+                 appname, wxOK | wxICON_INFORMATION);
 }
 
 
@@ -216,14 +218,14 @@ void MyFrame::OnShowInfo_page(wxCommandEvent& event)
 void MyFrame::OnUnimplemented(wxCommandEvent& event)
 {
     wxMessageBox("Unimplemented feature.",
-                 LABEL, wxOK | wxICON_INFORMATION);
+                 appname, wxOK | wxICON_INFORMATION);
     //wxLogMessage("info");
 }
 
 void MyFrame::OnAbout(wxCommandEvent& event)
 {
     wxMessageBox("[INSERT link to software info]",
-                 LABEL, wxOK | wxICON_INFORMATION);
+                 appname, wxOK | wxICON_INFORMATION);
 }
 
 void MyFrame::OnExit(wxCommandEvent& event)
