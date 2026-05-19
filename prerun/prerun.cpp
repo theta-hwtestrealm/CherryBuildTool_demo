@@ -40,14 +40,13 @@ bool MyApp::OnInit()
     wxString config = panicVerifyFile(root,"config.json");
     wxString mainexec =  panicVerifyFile("root", exeName);
     panicVerifyFile(root, "userdata"); //as a general rule i wont touch user data
+    panicVerifyFile(root, "Pages");
+    panicVerifyFile(root, "tools");
+    panicVerifyFile(root, "bin");
     
     //init
     
     wxString RepairUpdateWizard = verifyFile(root, "Updater");
-
-    bool data_pages = !(dirExists(root, "Pages") == "")
-    bool data_tools = !(dirExists(root, "tools") == "")
-    bool data_bin = !(dirExists(root, "bin") == "")
 
     bool checkUpdates;
     wxLongLong recommendedFree;
@@ -72,22 +71,15 @@ bool MyApp::OnInit()
         }
     }
 
-    // damage checks
+    // other checks
 
     if (recommendedFree > currentFree) {
         wxString spaceNeeded = FormatBytes(recommendedFree - currentFree);
-        wxString spacetext = ("It is recommended to free [" + spaceNeeded + "] to use this applications functions");
-        wxMessageBox(spacetext, LABEL, wxOK | wxICON_INFORMATION);
+        wxString spacetext = ("It is recommended to have [" + spaceNeeded + "] available");
+        wxMessageBox(spacetext, "Low Storage", wxOK | wxICON_INFORMATION);
     }
 
-    if (!data_pages || !data_tools || !data_bin) {
-        wxString spacetext = ("The installation is missing files and the repair wizard will be opened if available");
-        wxMessageBox(spacetext, LABEL, wxOK | wxICON_INFORMATION);
-        if (RepairUpdateWizard != "") {
-            wxExecute(RepairUpdateWizard, wxEXEC_ASYNC);
-            wxExit();
-        }
-    }
+    // repair wizard?
 
     wxExecute(mainexec, wxEXEC_ASYNC);
     wxExit();
@@ -129,8 +121,8 @@ wxString panicVerifyFile(wxString fromRoot, wxString fileName) {
     bool result = verifyFile(wxString fromRoot, wxString fileName);
 
     if (result == "") {
-        wxMessageBox(fileName + " Panic! [damaged installation]",
-                 LABEL, wxOK | wxICON_INFORMATION);
+        wxMessageBox("Fatal! the app is damaged and must be reinstalled",
+                 fileName, wxOK | wxICON_INFORMATION);
         wxExit();
     }
 }
